@@ -59,11 +59,22 @@ dfa = {
 
 my_dfa = Sim_DFA(dfa, 0, {0})
 
+
+
+# Read in input file
 strings = []
-for i in range(1):
-    tmp_str = input('Enter String: ')
-    strings.append(tmp_str)
-print('----------------')    
+with open("input.txt", "r") as file:
+    strings = [line.strip() for line in file]
+
+print('Input String list')
+print(strings)
+
+
+# Or take in UI
+#n = 1
+#for i in range(n):
+#    tmp_str = input('Enter String: ')
+#    strings.append(tmp_str)
 
 for string in strings:
     print('Running {}'.format(string))
@@ -71,7 +82,7 @@ for string in strings:
 
     for i, state in enumerate(visited_states):
         if (i == len(visited_states) - 1):
-            print('s_{}'.format(state))
+            print('Q_{}'.format(state))
         else:
-            print('s_{}'.format(state), '->', end=' ')
+            print('Q_{}'.format(state), '->', end=' ')
     print('Accepted:', result, '\n')
