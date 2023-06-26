@@ -1,7 +1,37 @@
-#TODO
-# Add Comm's
-#
+"""
+Dfa Sim
+--------
 
+This code will take a dict. of dict's as its structure
+this structure will be fed into a sim_DFA obj. which will 
+then simulate the given string on the structure.
+
+You can define any \Sigma you want, but the set of all 
+bit strings are the easiest to get working since its just 
+a binary alphabet.
+
+The output will show the path for which the string simulates through
+the given states, then the final output will be True or False statement 
+about whether the string has been accepted when the DFA halted.
+"""
+
+
+"""
+This class will take in the following params
+
+ - transition function and state's (see dfa)
+ - q0, i.e. the start state
+ - accp, the set of accepting states
+
+When obj of this class is created it will create an obj that will
+allow you to pass it the above 3 params; which in return will allow
+for the simulation of the DFA to take place.
+
+To run just call your obj.simulate(<Some String>)
+
+Above will return a list of states visited, and the binary eval
+of the strings acceptance.
+"""
 class Sim_DFA:
     def __init__(self, delta, q0, accp):
         self.delta = delta
@@ -16,11 +46,11 @@ class Sim_DFA:
             visited.append(state)
         return state in self.accp, visited
 
-#
-# {'char':q_n}
-# Following is set up for 
-# {all bitstrings with 2n # of 1's}
-##
+"""
+{'char':q_n}
+Following is set up for 
+{all bitstrings with 2n # of 1's}
+"""
 dfa = {
     0:{'0':0, '1':1},
     1:{'0':1, '1':0}
