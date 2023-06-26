@@ -1,3 +1,7 @@
+#TODO
+# Add Comm's
+#
+
 class Sim_DFA:
     def __init__(self, delta, q0, accp):
         self.delta = delta
@@ -12,20 +16,23 @@ class Sim_DFA:
             visited.append(state)
         return state in self.accp, visited
 
+#
+# {'char':q_n}
+# Following is set up for 
+# {all bitstrings with 2n # of 1's}
+##
 dfa = {
     0:{'0':0, '1':1},
-    1:{'0':2, '1':0},
-    2:{'0':1, '1':2}
+    1:{'0':1, '1':0}
 }
 
 
 my_dfa = Sim_DFA(dfa, 0, {0})
 
 strings = []
-for i in range(2):
+for i in range(1):
     tmp_str = input('Enter String: ')
     strings.append(tmp_str)
-
 print('----------------')    
 
 for string in strings:
