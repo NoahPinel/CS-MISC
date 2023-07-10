@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{amsmath,amsthm}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{rsfso}
+\graphicspath{{./IMG/}}
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,
+    linkcolor=blue,
+}
+
+%-------------- HEADER & FOOTER --------------------------------------------------------
+% Assignment / Project / etc.
+% Class Name
+\newcommand{\hmwkClass}{Computational Complexity Notes}
+\newcommand{\hmwkAuthorName}{Noah Pinel}
+
+% Title Page
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass}}\\
+    \date{}
+    \vspace{3in}
+}
+
+%--- LAZY ---
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\ps}{\{p_n\}}
+
+% Define Theorem Environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}[section] % Assuming you want definitions to be numbered within sections
+
+%---------------------HEADER & FOOTER-----------------------------------------------------------
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{\slshape\nouppercase{\leftmark}}
+\rhead{Computational Complexity}
+\fancyfoot{}
+
+\newcommand\invisiblesection[1]{%
+  \refstepcounter{section}%
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+  \sectionmark{#1}
+}
+
+%--------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Print the title
+
+\newpage
+
+\fancyfoot[R]{\thepage}
+
+%----------------TABLE OF CONTENTS------------------------------------------
+
+\tableofcontents
+
+\invisiblesection{Table of contents}
+
+\newpage
+
+%----------------ABSTRACT---------------------------------------------------
+
+\section{Abstract}
+
+\begin{abstract}
+	I've done a bit of reading on this subject, as a result I have a lot of
+	notes that I have taken, sourced from a few places; but mainly Sipser's book and
+	Arora and Barak's. I'll try and populate this file when I have time.
+\end{abstract}
+
+\newpage
+
+%------------------------------------------------------------------------
+
+\section{Null}
+
+\subsection{Null}
+\begin{definition}[Null]
+\end{definition}
+\end{document}
