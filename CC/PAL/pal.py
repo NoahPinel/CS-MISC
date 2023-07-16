@@ -20,12 +20,12 @@ Algorithm:
     4. If the tape is fully traversed without finding a mismatch, the input is a palindrome.
 
 Example Usage:
-    $ python palindrome_checker.py 1001
+    $ python pal.py 1001
     HALTED
 	OUTPUT TAPE: 1
 
 
-    $ python palindrome_checker.py 11010
+    $ python pal.py 11010
     HALTED
 	OUTPUT TAPE: 0
 """
