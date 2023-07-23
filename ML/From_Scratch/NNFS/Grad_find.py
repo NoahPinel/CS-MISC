@@ -136,17 +136,6 @@ d2.forward(a1.output)
 
 loss = loss_func.forward(d2.output, y)
 
-print(loss_func.output[:5])
-print('Loss', loss)
-
-predictions = np.argmax(loss_func.output, axis=1)
-if len(y.shape) == 2:
-    y = np.argmax(y, axis=1)
-acc = np.mean(predictions==y)
-
-print('ACC', acc)
-
-
 # Back Pass
 loss_func.backward(loss_func.output, y)
 d2.backward(loss_func.dinputs)
