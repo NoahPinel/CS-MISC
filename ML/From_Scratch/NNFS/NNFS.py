@@ -2,7 +2,7 @@
 This code builds a small NN,
 it can do a forward pass, it can
 also do a backward pass. This
-model has SGD avalible
+model has SGD avalible.
 
 
 Has a custom data loader, just pass it 
@@ -10,14 +10,19 @@ a number of points per class, and set the
 class in the code. Will generate j points
 per n classes in Euclidean space.
 
-the data points will be plotted for visual
+the data points will be plotted for visual.
 
 During training the model will display
 the prediction, GT, and then the tensor
-showing the prob dist P: --> [0, 1]
+showing the prob dist P: --> [0, 1].
 
 The loss and acc curves will be plotted after
 training too.
+
+SGD now has a very stupid LR sched.
+
+Data can now be generated with a noise factor
+producing a tougher to classify euclidean space.
 """
 import numpy as np
 from tqdm import tqdm
@@ -138,13 +143,20 @@ class Softmax:
 
 
 class SGD:
-    def __init__(self, lr=0.01):
+    def __init__(self, lr = 0.01, decay = 0.0001):
         self.lr = lr
-
+        self.iter = 0
+        self.decay = decay
+    
     def update(self, layer):
+        #if (self.iter % 10_000 == 0):
+        #    self.lr = self.lr * self.decay
+        #    print('lr: ', self.lr)
+        
         layer.weights -= self.lr * layer.dweights
         layer.biases -= self.lr * layer.dbiases
-
+        
+        #self.iter += 1
 
 def get_batches(X, y, batch_size):
     num_samples = X.shape[0]
@@ -185,11 +197,14 @@ def plot_graph(loss_values, accuracy_values):
     plt.show()
 
 # DataSet
-X, y = dataset.dataset_gen(num_points_per_class=700)
+# Noise will load the data in a certain way
+# high 3+ will produce very scattered points
+# low <= will produce more segregated clusters
+X, y = dataset.dataset_gen(points_per_class = 500, noise = 3)
 
 # Plot
 num_classes = len(np.unique(y))
-class_colors = plt.cm.jet(np.linspace(0, 1, num_classes))  # Generate colors for each class
+class_colors = plt.cm.coolwarm(np.linspace(0, 1, num_classes))
 
 plt.figure(figsize=(8, 6))
 for class_index in range(num_classes):
@@ -207,8 +222,9 @@ d2 = Dense_Layer(128, 5)
 # Hyps
 loss_func = Cat_Cross_Ent_Back()
 lr = 0.1
-opt = SGD(lr)
-epochs = 6000
+decay = 0.01
+opt = SGD(lr, decay)
+epochs = 10_000
 y_copy = y.copy()
 
 loss_values = []

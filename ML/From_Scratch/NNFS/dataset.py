@@ -1,6 +1,5 @@
 import numpy as np
-def dataset_gen(num_points_per_class):
-    # Random seed for reproducibility
+def dataset_gen(points_per_class, noise):
     np.random.seed(0)
     num_classes = 5
     data = []
@@ -8,11 +7,11 @@ def dataset_gen(num_points_per_class):
 
     for class_index in range(num_classes):
         # Generate random points with some variance
-        X = np.random.randn(num_points_per_class, 2) + class_index * 3
+        X = np.random.randn(points_per_class, 2) * noise + class_index * 3
 
         data.append(X)
 
-        y = np.ones(num_points_per_class, dtype=np.int32) * class_index  # Convert to integer type
+        y = np.ones(points_per_class, dtype=np.int32) * class_index
         labels.append(y)
 
     X = np.concatenate(data)
