@@ -1,0 +1,12 @@
+-- New tactics add_succ and add_zero
+
+begin
+	-- ⊢ a + succ 0 = succ a
+	rw add_succ,
+	
+	-- ⊢ succ(a + 0) = succ a
+	rw add_zero,
+
+	-- ⊢ succ a = succ a
+	refl,
+end
