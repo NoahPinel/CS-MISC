@@ -1,6 +1,6 @@
 -- New tactic induction
 
-being
+begin
 	-- 2 new goal's BC and H
 	induction n with d hd,
 	
