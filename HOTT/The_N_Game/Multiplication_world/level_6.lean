@@ -1,3 +1,4 @@
+lemma succ_mul (a b : mynat) : succ a * b = a * b + b :=
 begin
 	induction b with k h,
 	refl, --Triv

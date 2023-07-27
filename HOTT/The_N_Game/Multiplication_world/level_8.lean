@@ -1,4 +1,6 @@
 -- A * B == B * A
+-- showing comm. we now know that \mathbb{N} is a commutative semiring.
+
 lemma mul_comm (a b : mynat) : a * b = b * a :=
 
 begin
