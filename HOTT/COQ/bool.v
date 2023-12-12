@@ -1,4 +1,3 @@
-(**
 
   This file starts from a raw boolean type, (True False)
   
