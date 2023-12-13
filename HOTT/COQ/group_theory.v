@@ -51,5 +51,4 @@ Qed.
 Lemma left_inv :
 forall a, i a <+> a = e.
 Proof.
-  Admitted.
-
+  intros.
