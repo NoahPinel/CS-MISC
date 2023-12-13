@@ -6,7 +6,6 @@
   lemmas...
 
  Link := https://people.cs.umass.edu/~arjun/courses/cs691pl-spring2014/assignments/groups.html
-
 **)
 Require Import Setoid.
 
@@ -47,8 +46,15 @@ Proof.
   exact H0.
 Qed.
 
+(*
+intros a.
+rewrite <- (inv_r a) at 1.
+Gives us i a <+> a = a <+> i a
+  *)
+
 (* [i a] is the left-inverse of [a]. *) 
 Lemma left_inv :
 forall a, i a <+> a = e.
 Proof.
   intros.
+  
