@@ -1,2 +1,2 @@
 # CS-MISC
-Random TCS code and what not
+Just a spot to put the random code I write, most of this stuff is Math and TCS related.
