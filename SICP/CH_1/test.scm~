@@ -45,18 +45,3 @@ circ
   (sum-of-sqr (+ a 1) (* a 2)))
 
 (f 5)
-
-; Conditional Expressions and Predicates
-(define (abs x)
-  (cond ((> x 0) x)
-        ((= x 0) 0)
-        ((< x 0) (- x))))
-
-(abs -10)
-
-; This is cleaner
-(define (abs1 x)
-  (if (< x 0)
-      (- x)
-      x))
-(abs1 -12)
