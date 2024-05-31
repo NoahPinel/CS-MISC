@@ -3,7 +3,7 @@
 This is neat because we didnt need to
 rely on constructs for looping to achieve
 our iteration, it was simply done with procedure
-call.
+calls.
 |#
 
 (define (square x)
